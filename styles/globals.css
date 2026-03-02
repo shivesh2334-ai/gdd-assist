@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1a2744;
+  --primary-light: #2d3f6b;
+  --accent: #00b4d8;
+  --accent-warm: #e85d04;
+  --surface: #f8f9fc;
+  --surface-2: #f0f2f8;
+  --border: #e2e6f0;
+  --text: #0f1929;
+  --text-muted: #5a6480;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --genetics: #4f46e5;
+  --neuro: #0891b2;
+  --electro: #d97706;
+  --biochem: #059669;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Typography */
+.font-display { font-family: 'DM Serif Display', serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 180, 216, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 180, 216, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 180, 216, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.thinking-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 1.4s infinite ease-in-out;
+}
+.thinking-dot:nth-child(2) { animation-delay: 0.2s; }
+.thinking-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Chat message markdown */
+.prose-chat h1, .prose-chat h2, .prose-chat h3 {
+  font-family: 'DM Serif Display', serif;
+  color: var(--primary);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.prose-chat h3 { font-size: 1rem; font-weight: 600; }
+.prose-chat ul, .prose-chat ol {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+.prose-chat li { margin: 0.2rem 0; }
+.prose-chat strong { color: var(--primary); font-weight: 600; }
+.prose-chat code {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--surface-2);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875em;
+}
+.prose-chat p { margin: 0.4rem 0; }
+.prose-chat hr { border-color: var(--border); margin: 0.75rem 0; }
+
+/* Category badges */
+.badge-genetics { background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
+.badge-neuro { background: #ECFEFF; color: #0E7490; border: 1px solid #A5F3FC; }
+.badge-electro { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
+.badge-biochem { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+
+.treatable-badge {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+  font-weight: 600;
+}
