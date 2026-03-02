@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Head from "next/head";
 import { INVESTIGATION_CATEGORIES, MILESTONE_REFERENCE } from "../lib/knowledge-base";
 
-// ---- Simple markdown renderer ----
+// --- Simple markdown renderer ----
 function renderMarkdown(text) {
   if (!text) return "";
   let html = text
